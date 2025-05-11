@@ -1,7 +1,8 @@
 import socket
 
 # Configuración
-servo_ip = '192.168.0.33'
+servo_ip = "10.96.23.117"  # Reemplaza con la IP de tu ESP32
+
 servo_port = 8080  # Cambia este puerto si sabes que tu servo usa otro
 
 # Crear socket TCP

@@ -7,7 +7,7 @@ import time
 cortex_token = None
 session_id = None
 headset_id = None
-esp32_ip = "192.168.0.33"  # Reemplaza con la IP de tu ESP32
+esp32_ip = "10.96.23.117"  # Reemplaza con la IP de tu ESP32
 esp32_port = 8080  # Puerto que configuraste en el ESP32
 ws_app = None  # Instancia de WebSocketApp
 
@@ -169,9 +169,9 @@ def run_ws():
 
 
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     import socket # Importar la librería socket
-
+    print("GAAF")
     # Iniciar el WebSocket en un hilo separado
     ws_thread = threading.Thread(target=run_ws)
     ws_thread.start()

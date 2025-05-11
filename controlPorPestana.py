@@ -18,8 +18,10 @@ VK_CODES = {
     'SPACE': 0x20
 }
 
+lastMove = 'D'  # ← asegúrate de que esté antes de cualquier función que lo use
+
 # Cambia esto por el nombre exacto de tu ventana
-hwnd = win32gui.FindWindow(None, 'Juega al juego original de Super Mario Bros en línea GRATIS - Google Chrome') # Aqui cambiamos la pestaña donde queremos ejecutar los comandos
+hwnd = win32gui.FindWindow(None, 'Mario') # Aqui cambiamos la pestaña donde queremos ejecutar los comandos Juega al juego original de Super Mario Bros en línea GRATIS - Google Chrome 
 
 if hwnd == 0:
     print("❌ No se encontró la ventana del emulador. Verifica el nombre.")
@@ -54,6 +56,7 @@ def control(tecla,mantener=0.05):
 
 def process_command(accion, potencia):
     """Procesa el comando mental"""
+    global lastMove 
     categoria = "Bajo"
     if potencia > 0.30:
         categoria = "Medio"
@@ -63,12 +66,16 @@ def process_command(accion, potencia):
     if accion == "left" and potencia >= .80:
         print("<-- Potencia:", potencia * 100, '%')
         control('A')
-    elif accion == "right" and potencia >= .05:
+        lastMove = 'A'
+    elif accion == "right" and potencia >= .00:
         print("--> Potencia:", potencia * 100, '%')
         control('D', 0.2)
-    elif accion == "lift" and potencia >= .30:
+        lastMove = 'D'
+    elif accion == "lift" and potencia >= .00:
         print("^ Potencia:", potencia * 100, '%')
         control('SPACE', 0.45)
+        control(lastMove, 0.02)
+        
 
 def on_message(ws, message):
     global cortex_token, session_id, headset_id
