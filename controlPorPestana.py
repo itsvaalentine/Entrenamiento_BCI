@@ -21,7 +21,7 @@ VK_CODES = {
 lastMove = 'D'  # ← asegúrate de que esté antes de cualquier función que lo use
 
 # Cambia esto por el nombre exacto de tu ventana
-hwnd = win32gui.FindWindow(None, 'Mario') # Aqui cambiamos la pestaña donde queremos ejecutar los comandos Juega al juego original de Super Mario Bros en línea GRATIS - Google Chrome 
+hwnd = win32gui.FindWindow(None, 'Juega al juego original de Super Mario Bros en línea GRATIS - Google Chrome') # Aqui cambiamos la pestaña donde queremos ejecutar los comandos Juega al juego original de Super Mario Bros en línea GRATIS - Google Chrome 
 
 if hwnd == 0:
     print("❌ No se encontró la ventana del emulador. Verifica el nombre.")
